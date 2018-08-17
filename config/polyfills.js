@@ -47,6 +47,8 @@ const localStorageMock = (function() {
 
 })();
 
-Object.defineProperty(window, 'localStorage', {
-   value: localStorageMock
-});
+if (process.env.NODE_ENV === 'test') {
+  Object.defineProperty(window, 'localStorage', {
+     value: localStorageMock
+  });
+}
